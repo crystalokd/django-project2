@@ -5,6 +5,13 @@ from django.db import models
 from django.urls import reverse
 
 
+
+
+class Type(models.Model):
+    name = models.CharField(max_length=20)
+
+
+
 class News(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     deleted = models.BooleanField(null = True)
@@ -32,6 +39,4 @@ class News(models.Model):
         return reverse('news_detail', args=[str(self.id)])
 
 
-class Type(models.Model):
-    name = models.CharField(max_length=20)
 
