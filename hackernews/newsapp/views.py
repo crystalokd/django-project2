@@ -2,7 +2,7 @@ from django.shortcuts import render
 import requests
 from django.views.generic import (
     ListView,
-    DetailView,
+    DetailView
 )
 
 from .models import News, Type
@@ -16,14 +16,14 @@ def home(request):
 
 class NewsListView(ListView):
     model = News
-    template_name = 'newsapp/home.html'  # <app>/<model>_<viewtype>.html
+    template_name = 'newsapp/home.html'  
     context_object_name = 'news'
     ordering = ['-time']
     paginate_by = 5
 
 class NewsTypeListView(ListView):
     model = News
-    template_name = 'newsapp/news_type.html'  # <app>/<model>_<viewtype>.html
+    template_name = 'newsapp/news_type.html'  
     context_object_name = 'news'
     paginate_by = 5
 
@@ -42,7 +42,7 @@ class SearchResultsListView(ListView):
 	template_name = 'newsapp/search_results.html'
 
 
-	def get_queryset(self): # new
+	def get_queryset(self): 
 		query = self.request.GET.get('q')
 		return Book.objects.filter(
 		Q(title__icontains=query) | Q(author__icontains=query)

@@ -1,4 +1,4 @@
-# api/serializers.py
+
 from rest_framework import serializers
 from newsapp.models import News
 
@@ -7,4 +7,4 @@ from newsapp.models import News
 class NewsSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = News
-		fields = ('id', 'title', 'by', 'url', 'title', 'time', 'url')
+		fields = ('id', 'type', 'by', 'url', 'title', 'time', 'kids', 'score')
