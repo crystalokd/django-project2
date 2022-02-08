@@ -1,17 +1,18 @@
 # api/views.py
 from rest_framework import generics
-from books.models import News
+from newsapp.models import News
+from .permissions import IsAuthorOrReadOnly
 from .serializers import NewsSerializer
 
 
 
-class BookAPIView(generics.ListAPIView):
-	queryset = Book.objects.all()
+class NewsAPIView(generics.ListAPIView):
+	queryset = News.objects.all()
 	serializer_class = BookSerializer.
 
 
-class PostList(generics.ListCreateAPIView):
-	queryset = Post.objects.all()
+class NewsList(generics.ListCreateAPIView):
+	queryset = News.objects.all()
 	serializer_class = PostSerializer
 
 class NewsDetail(generics.RetrieveUpdateDestroyAPIView):

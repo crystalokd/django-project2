@@ -7,4 +7,5 @@ from .views import BookAPIView
 urlpatterns = [
 	path('', NewsAPIView.as_view()),
 	path('<int:pk>/',NewsDetail.as_view()),
+	path('api-auth/', include('rest_framework.urls')),
 ]
